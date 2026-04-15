@@ -1,0 +1,72 @@
+1. Criar baralho com múltiplos decks
+•	URL: https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6
+•	Método: GET
+•	Status: 200 OK
+Resposta:
+{
+    "success": true,
+    "deck_id": "s4jtke75oqye",
+    "remaining": 312,
+    "shuffled": true
+}
+
+Retorna baralho com 6 decks (312 cartas)
+________________________________________
+2. Parâmetro vazio (erro)
+•	URL: https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=
+•	Método: GET
+•	Status: 500 Internal Server Error
+Resposta:
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+Retorna erro interno (500) acredito que deveria ser o erro do cliente (400)
+________________________________________
+3. Criar baralho com cartas específicas (primeiro fiz a busca com cartas A espada e 2 de espadas) 
+•	URL: https://deckofcardsapi.com/api/deck/new/shuffle/?cards=AS,2S
+•	Método: GET
+•	Status: 200 OK
+Resposta:
+{
+    "success": true,
+    "deck_id": "1fkctxcquxnm",
+    "remaining": 2,
+    "shuffled": true
+}
+
+Retorna apenas as cartas especificadas
+________________________________________
+4. Teste com método POST
+•	URL: https://deckofcardsapi.com/api/deck/new/shuffle/?cards=AS,2S
+•	Método: POST
+•	Status: 200 OK
+Resposta:
+{
+    "success": true,
+    "deck_id": "by8vgvdqqusi",
+    "remaining": 52,
+    "shuffled": true
+}
+Método POST é aceito, mas eu achava que teria que criar 4 cartas agora e aparece baralho completo (52 cartas)
+________________________________________
+5. Teste com método DELETE
+•	URL: https://deckofcardsapi.com/api/deck/new/shuffle/?cards=AS,2S
+•	Método: DELETE
+•	Status: 200 OK
+Resposta:
+{
+    "success": true,
+    "deck_id": "kteocyhrfdxw",
+    "remaining": 2,
+    "shuffled": true
+}
+
+Acreditava que teria que aparecer 0 cartas 
+
